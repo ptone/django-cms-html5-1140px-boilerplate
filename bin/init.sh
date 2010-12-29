@@ -6,7 +6,7 @@ echo "What is the path to your virtualenvwrapper.sh?"
 echo "Standard is: /usr/local/bin/virtualenvwrapper.sh"
 echo "Leave empty to use standard: "
 read venvwrappersh
-if [ "$venvwrappersh" -eq "" ]
+if [ "$venvwrappersh" == "" ]
   then 
     echo "Using standard!"
     venvwrappersh="/usr/local/bin/virtualenvwrapper.sh"
