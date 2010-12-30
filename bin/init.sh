@@ -25,7 +25,7 @@ read dbname
 echo "Database user:"
 read dbuser
 
-echo "Database password:"
+echo "Database password (cannot have the character '/'):"
 read dbpassword
 
 echo "MySQL root password:"
@@ -97,6 +97,7 @@ cd webapps/django/project/
 cp local_settings.py.sample local_settings.py
 sed -i s/dbname/$dbname/g local_settings.py
 sed -i s/dbuser/$dbuser/g local_settings.py
+sed -i s/dbpassword/$dbpassword/g local_settings.py
 cd ../../..
 sed -i s@projectroot@$(pwd)/@g webapps/django/project/local_settings.py
 
