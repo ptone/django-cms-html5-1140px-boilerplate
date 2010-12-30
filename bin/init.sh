@@ -116,6 +116,7 @@ mysql --user=root --password=$mysqlrootpassword -e "GRANT ALL ON $dbname.* TO $d
 echo "Don't worry about mysql errors when dropping the user $dbuser!"
 echo "Everything is done. Check your $HOME/.pip/pip.log for errors. If some modules couldn't be installed, try again to add them to your virtualenv!"
 echo "Next steps are:"
+echo "workon $virtualenvname"
 echo "cd webapps/django/project"
 echo "python manage.py syncdb --all && python manage.py migrate --fake"
 echo "python manage.py runserver"
