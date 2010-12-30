@@ -106,10 +106,11 @@ git add .
 git commit -m "Initial Commit"
 
 echo "Initiate mysql test database..."
-mysql --user=root --password=$mysqlrootpassword -e "DELETE FROM user WHERE User = '$dbuser';"
+mysql --user=root --password=$mysqlrootpassword -e "DROP USER $dbuser;"
 mysql --user=root --password=$mysqlrootpassword -e "DROP DATABASE IF EXISTS $dbname;"
-mysqladmin --user=root --password=$mysqlrootpassword --character-set=utf8 --default-character-set=utf8 create $dbname
 mysql --user=root --password=$mysqlrootpassword -e "CREATE USER $dbname IDENTIFIED BY '$dbpassword';"
 mysql --user=root --password=$mysqlrootpassword -e "CREATE DATABASE $dbname CHARACTER SET utf8 COLLATE utf8_general_ci;"
 mysql --user=root --password=$mysqlrootpassword -e "GRANT ALL ON $dbname.* TO $dbuser;"
-mysqladmin --user=root --password=$mysqlrootpassword reload
+
+echo "Don't worry about mysql errors when dropping the user $dbuser!"
+echo "Everything is done. Check your $HOME/.pip/pip.log for errors. If some modules couldn't be installed, try again to add them to your virtualenv!"
