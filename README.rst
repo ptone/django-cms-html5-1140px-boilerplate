@@ -13,10 +13,12 @@ Ingredients
 
   - automated setup of your virtualenv
   - automated setup of an empty test database
+  - html5_ ready
   - based on django-cms_
+  - ready for mobile browsers thanks to the 1140px-CSS-framework_
   - using django-compressor_
     for combining, compressing and minifying static files
-  - comes with SASS_ support
+  - SASS_ support
   - ready for deployment at Webfaction_
 
 Preparation
@@ -30,31 +32,19 @@ Recipe
 ======
 
   - Clone this repository, 
-  - create a virtualenv, 
   - initiate the project 
-  - and your database
   
 ::
 
   git clone git://github.com/bitmazk/django-cms-html5-1140px-boilerplate.git yourproject 
   cd yourproject
-  ./bin/initvirtualenv.sh
-  ./bin/initproject.sh
-  ./bin/initdatabase.sh
+  ./bin/init.sh
   cd webapps/django/project
   workon yourvirtualenv
   python manage.py syncdb
   python manage.py migrate
   python manage.py runserver
-  
-``createvirtualenv.sh`` has been put into its own script because it will take 
-quite some time to install all dependencies. You might not want to create an own
-virtualenv for all your boilerplate based projects (however, it is advisable to 
-do so).
-
-``initdatabase.sh`` will ask you for a database name. It will use your input 
-for the username as well and drop existing entities, then create fresh ones.
-  
+   
 HTML5 Boilerplate and SASS
 ==========================
 We are standing on the shoulders of giants and use the awesome 
@@ -102,3 +92,6 @@ that script in the future as well...
 .. _sass: http://sass-lang.com/
 .. _bitmazk-environment: https://github.com/bitmazk/bitmazk-environment
 .. _html5-boilerplate: https://github.com/paulirish/html5-boilerplate
+.. _html5: https://github.com/paulirish/html5-boilerplate
+.. _1140px-CSS-framework: http://cssgrid.net/
+
