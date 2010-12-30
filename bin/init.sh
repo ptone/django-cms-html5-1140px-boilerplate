@@ -8,8 +8,12 @@ echo "Leave empty to use standard: "
 read venvwrappersh
 if [ "$venvwrappersh" == "" ]
   then 
-    echo "Using standard!"
     venvwrappersh="/usr/local/bin/virtualenvwrapper.sh"
+fi
+if [ ! -f $venvwrappersh ]
+  then
+    echo "ERROR: File $venvwrappersh does not exist..."
+    exit 1
 fi
 
 echo "Virtualenv name:"
