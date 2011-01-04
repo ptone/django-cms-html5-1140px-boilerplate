@@ -1,1 +1,3 @@
 *.pyc
+webapps/django/project/.sass-cache/
+webapps/static/css/styles.css
