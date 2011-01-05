@@ -41,6 +41,7 @@ pip install PIL
 pip install mysql-python
 pip install south
 pip install BeautifulSoup
+pip install django-simple-captcha
 pip install -e git://github.com/divio/django-cms.git#egg=django-cms
 pip install -e git://github.com/dziegler/django-css.git#egg=compressor
 pip install -e git://github.com/SmileyChris/easy-thumbnails.git#egg=easy-thumbnails
