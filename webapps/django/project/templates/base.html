@@ -1,10 +1,10 @@
 {% load cms_tags menu_tags compress %}
-<!doctype html>  
+<!doctype html>
 
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <title>{% page_attribute page_title %}</title>
@@ -27,7 +27,7 @@
   <script src="/static/js/libs/modernizr-1.6.min.js"></script>
 </head>
 
-<body>
+<body lang="en" >
 
   <div id="container" class="container">
     <header>
@@ -37,7 +37,7 @@
 	</div>
       </div>
     </header>
-    
+
     <div id="main" role="main">
       <div class="row">
         <div class="threecol">
@@ -54,7 +54,7 @@
 	</div>
       </div>
     </div>
-    
+
     <footer>
       <div class="row">
         <div class="twelvecol">
@@ -75,15 +75,11 @@
     <script>DD_belatedPNG.fix('img, .png_bg');</script>
   <![endif]-->
   <script>
-   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-   (function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.async = true;
-    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-   })(document, 'script');
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-  
+
 </body>
 </html>
