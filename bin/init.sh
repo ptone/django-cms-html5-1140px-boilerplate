@@ -35,7 +35,7 @@ stty echo
 
 source $venvwrappersh
 echo "Installing all needed modules into a virtualenv"
-mkvirtualenv -p python2.7 --no-site-packages $virtualenvname
+mkvirtualenv -p python2.6 --no-site-packages $virtualenvname
 pip install Django
 pip install PIL
 pip install mysql-python
