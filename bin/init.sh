@@ -43,11 +43,10 @@ pip install south
 pip install BeautifulSoup
 pip install django-simple-captcha
 pip install django-cms
-#pip install -e git://github.com/divio/django-cms.git#egg=django-cms
-pip install -e git://github.com/dziegler/django-css.git#egg=compressor
-pip install -e git://github.com/SmileyChris/easy-thumbnails.git#egg=easy-thumbnails
-pip install -e git://github.com/stefanfoulis/django-filer.git@master#egg=filer
-pip install -e git://github.com/ojii/django-multilingual-ng.git#egg=multilingual
+pip install django-css
+pip install easy-thumbnails
+pip install django-filer
+pip install django-multilingual-ng
 
 echo "Updating git submodules..."
 git submodule update --init --recursive
