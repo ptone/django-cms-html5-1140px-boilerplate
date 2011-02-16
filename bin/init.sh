@@ -47,6 +47,7 @@ pip install django-css
 pip install easy-thumbnails
 pip install django-filer
 pip install django-multilingual-ng
+pip install django-mptt==0.3
 
 echo "Updating git submodules..."
 git submodule update --init --recursive
