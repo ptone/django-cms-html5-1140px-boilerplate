@@ -35,7 +35,7 @@ stty echo
 
 source $venvwrappersh
 echo "Installing all needed modules into a virtualenv"
-mkvirtualenv -p python2.6 --no-site-packages $virtualenvname
+mkvirtualenv -p python2.7 --no-site-packages $virtualenvname
 pip install Django
 pip install PIL
 pip install mysql-python
@@ -88,10 +88,10 @@ rm ./webapps/static/css/style.css
 echo "Creating symlinks..."
 cd webapps/static
 echo "What is the name of your virtualenv: "
-ln -s $HOME/Envs/$virtualenvname/lib/python2.6/site-packages/django/contrib/admin/media
-ln -s $HOME/Envs/$virtualenvname/lib/python2.6/site-packages/cms/media/cms
-ln -s $HOME/Envs/$virtualenvname/lib/python2.6/site-packages/filer/media/filer
-ln -s $HOME/Envs/$virtualenvname/lib/python2.6/site-packages/multilingual/media/multilingual
+ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/django/contrib/admin/media
+ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/cms/media/cms
+ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/filer/media/filer
+ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/multilingual/media/multilingual
 cd ../..
 
 echo "Creating local_settings.py ..."
