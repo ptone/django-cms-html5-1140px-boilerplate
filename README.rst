@@ -100,12 +100,12 @@ We usually have one static app for serving static files plus one django app for
 serving the django application. A deployment script on the server checks out the
 repository and copies everything to its destination via rsync.
 
-For a complete boilerplate script to hosting your django-cms project on Webfaction, see our `webfaction-django-cms-boilerplate <https://github.com/bitmazk/webfaction-django-cms-boilerplate//>`_
+For a complete boilerplate script to hosting your django-cms project at Webfaction, see our `webfaction-django-cms-boilerplate <https://github.com/bitmazk/webfaction-django-cms-boilerplate>`_
 
 License
 =======
 
-`The Unlicense <http://unlicense.org//>`_
+`The Unlicense <http://unlicense.org>`_
 
 .. _django-cms: https://github.com/divio/django-cms
 .. _django-compressor: https://github.com/mintchaos/django_compressor
