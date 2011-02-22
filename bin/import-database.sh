@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-echo "Database name (suggestion: tazkz):"
+echo "Database name:"
 read dbname
 
-echo "Database user (suggestion: tazkz):"
+echo "Database user:"
 read dbuser
 
-echo "Database password (cannot have the character '/', suggestion: tazkz):"
+echo "Database password (cannot have the character '/'):"
 read dbpassword
 
 echo "MySQL root password:"
