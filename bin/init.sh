@@ -36,18 +36,8 @@ stty echo
 source $venvwrappersh
 echo "Installing all needed modules into a virtualenv"
 mkvirtualenv -p python2.7 --no-site-packages $virtualenvname
-pip install Django
-pip install PIL
-pip install mysql-python
-pip install south
-pip install BeautifulSoup
-pip install django-simple-captcha
-pip install django-cms
-pip install django-css
-pip install easy-thumbnails
-pip install django-filer
-pip install django-multilingual-ng
-pip install django-mptt==0.3
+workon $virtualenvname
+pip install -r bin/requirements.txt
 
 echo "Updating git submodules..."
 git submodule update --init --recursive
