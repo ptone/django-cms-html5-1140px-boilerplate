@@ -38,6 +38,7 @@ echo "Installing all needed modules into a virtualenv"
 mkvirtualenv -p python2.7 --no-site-packages $virtualenvname
 workon $virtualenvname
 pip install -r bin/requirements.txt
+pip install -r bin/dev_requirements.txt
 
 echo "Updating git submodules..."
 git submodule update --init --recursive
