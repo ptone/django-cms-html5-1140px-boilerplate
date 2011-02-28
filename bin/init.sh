@@ -81,7 +81,6 @@ echo "What is the name of your virtualenv: "
 ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/django/contrib/admin/media
 ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/cms/media/cms
 ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/filer/media/filer
-ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/multilingual/media/multilingual
 cd ../..
 
 echo "Creating local_settings.py ..."
