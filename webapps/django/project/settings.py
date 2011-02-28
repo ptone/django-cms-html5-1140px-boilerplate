@@ -135,6 +135,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'filer',
     'south',
+    'datatrans',
 )
 
 

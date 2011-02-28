@@ -4,6 +4,7 @@ django==1.2.5
 django-cms==2.1.3
 django-filer
 -e git://github.com/ojii/django-multilingual-ng.git@0d320a0732ec59949380d4b5f21e153174d3ecf7#egg=multilingual
+-e git://github.com/citylive/django-datatrans.git#egg=datatrans
 BeautifulSoup
 django-css
 django-mptt<0.4
