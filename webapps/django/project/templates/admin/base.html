@@ -55,16 +55,18 @@
     {% block breadcrumbs %}
 	<div class="breadcrumbs"><a href="/">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title }}{% endif %}</div>
     {% endblock %}
-    <form action="/i18n/setlang/" method="post">
-	{% csrf_token %}
-	<select name="language">
-	{% for lang in LANGUAGES %}
-	<option value="{{ lang.0 }}" {% ifequal lang.0 request.LANGUAGE_CODE %}selected="yes"
-	{% endifequal %}>{{ lang.1 }}</option>
-	{% endfor %}
-	</select>
-	<input type="submit" value="Go" />
-    </form>
+    {% if LANGUAGES|length %}
+	<form action="/i18n/setlang/" method="post">
+	    {% csrf_token %}
+	    <select name="language">
+	    {% for lang in LANGUAGES %}
+	    <option value="{{ lang.0 }}" {% ifequal lang.0 request.LANGUAGE_CODE %}selected="yes"
+	    {% endifequal %}>{{ lang.1 }}</option>
+	    {% endfor %}
+	    </select>
+	    <input type="submit" value="Go" />
+	</form>
+    {% endif %}
     {% endif %}
 
         {% if messages %}
@@ -92,4 +94,5 @@
 
 </body>
 </html>
+
 
