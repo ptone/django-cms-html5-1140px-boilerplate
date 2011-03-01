@@ -5,4 +5,7 @@ webapps/django/project/local_settings.py
 webapps/static/filer_private
 webapps/static/filer_public
 webapps/static/cms_page_media
+webapps/static/media
+webapps/static/filer
+webapps/static/cms
 webapps/static/CACHE/
