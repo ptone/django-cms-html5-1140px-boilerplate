@@ -1,4 +1,4 @@
-django==1.2.5
+django==1.3
 django-cms==2.1.3
 django-filer
 -e git://github.com/citylive/django-datatrans.git#egg=datatrans
