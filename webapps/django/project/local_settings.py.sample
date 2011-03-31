@@ -9,6 +9,20 @@ DATABASE_PASSWORD = 'dbpassword'         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'username@googlemail.com'
+#EMAIL_HOST_PASSWORD = 'xxxxxxxx'
+#EMAIL_USE_TLS = True
+#EMAIL_PORT = 587
+
+#ADMINS = (
+#    ('Martin', 'username@example.com'),
+#)
+
+#MANAGERS = (
+#    ('Your Name', 'username@example.com'),
+#)
+
 # Absolute path to the directory that holds the project sources
 # Make sure to use a training slash
 PROJECT_ROOT = 'projectroot'

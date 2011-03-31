@@ -24,20 +24,6 @@ TEMPLATE_DIRS = (
 )
 
 # Django settings for project.
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = 'username@googlemail.com'
-#EMAIL_HOST_PASSWORD = 'xxxxxxxx'
-#EMAIL_USE_TLS = True
-#EMAIL_PORT = 587
-
-#ADMINS = (
-#    ('Prename Name', 'prename.name@gmail.com'),
-#)
-
-#MANAGERS = (
-#    ('Prename Name', 'prename.name@gmail.com'),
-#)
-
 SEND_BROKEN_LINK_EMAILS = True
 IGNORABLE_404_STARTS = ('/static/cms/wymeditor/lang/',)
 
