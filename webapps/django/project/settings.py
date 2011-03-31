@@ -115,11 +115,13 @@ COMPILER_FORMATS = {
 COMPRESS_CSS_FILTERS = ['compressor.filters.csstidy.CSSTidyFilter',]
 
 INSTALLED_APPS = (
+    # Django related apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    # django-cms related apps
     'cms',
     'cms.plugins.text',
     'cms.plugins.picture',
@@ -131,11 +133,12 @@ INSTALLED_APPS = (
     'mptt',
     'publisher',
     'menus',
+    # useful 3rd party apps
     'compressor',
     'easy_thumbnails',
     'filer',
     'south',
-    'datatrans',
+    # your own apps
 )
 
 
