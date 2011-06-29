@@ -7,7 +7,7 @@ echo "Standard is: /usr/local/bin/virtualenvwrapper.sh"
 echo "Leave empty to use standard: "
 read venvwrappersh
 if [ "$venvwrappersh" == "" ]
-  then 
+  then
     venvwrappersh="/usr/local/bin/virtualenvwrapper.sh"
 fi
 if [ ! -f $venvwrappersh ]
@@ -38,7 +38,6 @@ echo "Installing all needed modules into a virtualenv"
 mkvirtualenv -p python2.7 --no-site-packages $virtualenvname
 workon $virtualenvname
 pip install -r bin/requirements.txt
-pip install -r bin/dev_requirements.txt
 
 echo "Updating git submodules..."
 git submodule update --init --recursive
@@ -73,13 +72,14 @@ tail -n +$SPLITTAIL ./webapps/static/css/style.css > ./webapps/static/css/boiler
 
 echo "Removing the parts we dont want..."
 rm -rf .git
+rm .gitignore
 rm README.rst
 rm ./webapps/static/css/style.css
 
 echo "Creating symlinks..."
-cd webapps/static
+mkdir -p ./webapps/media
+cd ./webapps/media
 echo "What is the name of your virtualenv: "
-ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/django/contrib/admin/media
 ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/cms/media/cms
 ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/filer/media/filer
 cd ../..
@@ -95,8 +95,12 @@ sed -i s@projectroot@$(pwd)/@g webapps/django/project/local_settings.py
 
 echo "Initiate a new git project..."
 git init
+cp ./lib/.gitignore .
 git add .
 git commit -m "Initial Commit"
+
+echo "Remove lib folder..."
+rm -rf ./lib/
 
 echo "Initiate mysql test database..."
 mysql --user=root --password=$mysqlrootpassword -e "DROP USER $dbuser;"
@@ -110,5 +114,7 @@ echo "Everything is done. Check your $HOME/.pip/pip.log for errors. If some modu
 echo "Next steps are:"
 echo "workon $virtualenvname"
 echo "cd webapps/django/project"
+echo "Change your secret key in your local_settings.py"
 echo "python manage.py syncdb --all && python manage.py migrate --fake"
+echo "python manage.py collectstatic"
 echo "python manage.py runserver"

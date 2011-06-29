@@ -2,8 +2,8 @@ Stop peeling. Start cooking!
 ============================
 
 At bitmazk we create beautifull handcrafted websites. After nearly 10 years
-of web development it turned out that a simple apache / django / django-cms
-stack works best for us and our customers.
+of web development it turned out that a simple nginx / apache / django /
+django-cms stack works best for us and our customers.
 
 To streamline the process of setting up new projects for new customers we
 created this boilerplate. Stop peeling. Start cooking!
@@ -16,8 +16,8 @@ Ingredients
   - html5_ ready
   - based on django-cms_
   - ready for mobile browsers thanks to the 1140px-CSS-framework_
-  - using django-compressor_
-    for combining, compressing and minifying static files
+  - using django-compressor_ for combining, compressing and minifying static
+    files
   - SASS_ support
   - ready for deployment at Webfaction_
 
@@ -85,9 +85,9 @@ recreated.
 
 When creating a project based on this boilerplate you might want to import
 the production database every now and then for debugging purposes. To make
-this easier we added import-database.sh. If you chose to import another database
-into a different database user / name / password, don't forget to update your
-local_settings.py.
+this easier we added `import-database.sh`. If you chose to import another
+database into a different database user / name / password, don't forget to
+update your `local_settings.py`.
 
 Hosting at Webfaction
 =====================
@@ -96,11 +96,14 @@ You might wonder about the folder structure of this project. We chose this
 structure because it reflects the structure on our hosted webservers at our
 awesome webhost Webfaction_.
 
-We usually have one static app for serving static files plus one django app for
-serving the django application. A deployment script on the server checks out the
-repository and copies everything to its destination via rsync.
+We usually have two static apps for serving static and media files plus one
+django app for serving the django application. A deployment script on the
+server checks out the repository and copies everything to its destination via
+rsync.
 
-For a complete boilerplate script to hosting your django-cms project at Webfaction, see our `webfaction-django-cms-boilerplate <https://github.com/bitmazk/webfaction-django-cms-boilerplate>`_
+For a complete boilerplate script to hosting your django-cms project at
+Webfaction, see our `webfaction-django-cms-boilerplate
+<https://github.com/bitmazk/webfaction-django-cms-boilerplate>`_
 
 License
 =======
@@ -119,4 +122,3 @@ License
 .. _html5-boilerplate: https://github.com/paulirish/html5-boilerplate
 .. _html5: https://github.com/paulirish/html5-boilerplate
 .. _1140px-CSS-framework: http://cssgrid.net/
-
