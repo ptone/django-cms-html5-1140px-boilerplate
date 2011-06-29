@@ -35,7 +35,7 @@ stty echo
 
 source $venvwrappersh
 echo "Installing all needed modules into a virtualenv"
-mkvirtualenv -p python2.7 --no-site-packages $virtualenvname
+mkvirtualenv -p python2.7 $virtualenvname
 workon $virtualenvname
 pip install -r bin/requirements.txt
 
@@ -59,8 +59,6 @@ cp -r ./lib/html5-boilerplate/css ./webapps/static/
 
 echo "Copying the parts of 1140px css grid that we need..."
 cp ./lib/1140px/1140.css ./webapps/static/css/1140.css
-cp ./lib/1140px/smallerscreen.css ./webapps/static/css/smallerscreen.css
-cp ./lib/1140px/mobile.css ./webapps/static/css/mobile.css
 cp ./lib/1140px/ie.css ./webapps/static/css/ie.css
 
 echo "Splitting up html5-boilerplate css..."
@@ -73,6 +71,7 @@ tail -n +$SPLITTAIL ./webapps/static/css/style.css > ./webapps/static/css/boiler
 echo "Removing the parts we dont want..."
 rm -rf .git
 rm .gitignore
+rm .gitmodules
 rm README.rst
 rm ./webapps/static/css/style.css
 
