@@ -104,7 +104,7 @@ rm -rf ./lib/
 echo "Initiate mysql test database..."
 mysql --user=root --password=$mysqlrootpassword -e "DROP USER $dbuser;"
 mysql --user=root --password=$mysqlrootpassword -e "DROP DATABASE IF EXISTS $dbname;"
-mysql --user=root --password=$mysqlrootpassword -e "CREATE USER $dbname IDENTIFIED BY '$dbpassword';"
+mysql --user=root --password=$mysqlrootpassword -e "CREATE USER $dbuser IDENTIFIED BY '$dbpassword';"
 mysql --user=root --password=$mysqlrootpassword -e "CREATE DATABASE $dbname CHARACTER SET utf8 COLLATE utf8_general_ci;"
 mysql --user=root --password=$mysqlrootpassword -e "GRANT ALL ON $dbname.* TO $dbuser;"
 
