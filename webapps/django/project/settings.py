@@ -98,12 +98,6 @@ CMS_TEMPLATES = (
     ('base.html', gettext('index')),
 )
 CMS_SEO_FIELDS = True
-COMPILER_FORMATS = {
-    '.sass': {
-        'binary_path':'sass',
-        'arguments': '*.sass *.css'
-    },
-}
 COMPRESS_PRECOMPILERS = (
     ('text/x-sass', 'sass {infile} {outfile}'),
 )
