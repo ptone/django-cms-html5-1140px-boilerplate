@@ -1,6 +1,7 @@
 *.pyc
 webapps/django/project/.sass-cache/
 webapps/django/project/local_settings.py
+webapps/django/project/db.sqlite
 webapps/media/
 webapps/static/CACHE/
 webapps/static/css/styles.css

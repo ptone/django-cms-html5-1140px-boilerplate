@@ -1,18 +1,19 @@
 Stop peeling. Start cooking!
 ============================
 
-At bitmazk we create beautifull handcrafted websites. After nearly 10 years
+At bitmazk we create accessible and responsive websites. After nearly 10 years
 of web development it turned out that a simple nginx / apache / django /
 django-cms stack works best for us and our customers.
 
 To streamline the process of setting up new projects for new customers we
-created this boilerplate. Stop peeling. Start cooking!
+created this boilerplate. This script should automatically setup your 
+virtual environment, initiate your database and collect your static files
+all in one command (``init.sh``). Stop peeling. Start cooking!
 
 Ingredients
 ===========
 
   - automated setup of your virtualenv
-  - automated setup of an empty test database
   - html5_ ready
   - based on django-cms_
   - ready for mobile browsers thanks to the 1140px-CSS-framework_
@@ -44,11 +45,8 @@ Recipe
   git clone git://github.com/bitmazk/django-cms-html5-1140px-boilerplate.git yourproject
   cd yourproject
   ./bin/init.sh
-  cd webapps/django/project
-  workon yourvirtualenv
-  python manage.py syncdb --all
-  python manage.py migrate --fake
-  python manage.py runserver
+
+Thtat's it!
 
 HTML5 Boilerplate and SASS
 ==========================
@@ -74,20 +72,6 @@ So you better check it yourself as well.
 
 If you find our ``base.html`` horribly outdated, please create an issue and we
 will take care quickly.
-
-The Database
-============
-We are used to MySQL. Sorry for that! The init.sh script will ask you for
-a database name/user/password and your MySQL Root password. It will then use
-your root password to drop and delete that user and database if it already
-exists. So plase *think twice*! After that the user and the database will get
-recreated.
-
-When creating a project based on this boilerplate you might want to import
-the production database every now and then for debugging purposes. To make
-this easier we added `import-database.sh`. If you chose to import another
-database into a different database user / name / password, don't forget to
-update your `local_settings.py`.
 
 Hosting at Webfaction
 =====================

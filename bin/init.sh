@@ -19,20 +19,6 @@ fi
 echo "Virtualenv name:"
 read virtualenvname
 
-echo "Database name:"
-read dbname
-
-echo "Database user:"
-read dbuser
-
-echo "Database password (cannot have the character '/'):"
-read dbpassword
-
-echo "MySQL root password:"
-stty -echo
-read mysqlrootpassword
-stty echo
-
 source $venvwrappersh
 echo "Installing all needed modules into a virtualenv"
 mkvirtualenv -p python2.7 $virtualenvname
@@ -51,7 +37,7 @@ touch ./webapps/static/css/styles.sass
 
 echo "Copying the parts of html5-boilerplate that we need..."
 cp ./lib/html5-boilerplate/404.html ./webapps/django/project/templates/404.html
-cp ./lib/html5-boilerplate/apple-touch-icon.png ./webapps/static/img/apple-touch-icon.png
+cp ./lib/html5-boilerplate/apple-touch-icon* ./webapps/static/img/
 cp ./lib/html5-boilerplate/favicon.ico ./webapps/static/img/favicon.ico
 cp ./lib/html5-boilerplate/robots.txt ./webapps/static/robots.txt
 cp -r ./lib/html5-boilerplate/js ./webapps/static/
@@ -86,34 +72,22 @@ cd ../..
 echo "Creating local_settings.py ..."
 cd webapps/django/project/
 cp local_settings.py.sample local_settings.py
-sed -i s/dbname/$dbname/g local_settings.py
-sed -i s/dbuser/$dbuser/g local_settings.py
-sed -i s/dbpassword/$dbpassword/g local_settings.py
 cd ../../..
 sed -i s@projectroot@$(pwd)/@g webapps/django/project/local_settings.py
 
+echo "Remove lib folder..."
+cp ./lib/.gitignore .
+rm -rf ./lib/
+
 echo "Initiate a new git project..."
 git init
-cp ./lib/.gitignore .
 git add .
 git commit -m "Initial Commit"
 
-echo "Remove lib folder..."
-rm -rf ./lib/
+workon $virtualenvname
+cd webapps/django/project
+./manage.py syncdb --migrate
+./manage.py collectstatic
+./manage.py runserver
 
-echo "Initiate mysql test database..."
-mysql --user=root --password=$mysqlrootpassword -e "DROP USER $dbuser;"
-mysql --user=root --password=$mysqlrootpassword -e "DROP DATABASE IF EXISTS $dbname;"
-mysql --user=root --password=$mysqlrootpassword -e "CREATE USER $dbuser IDENTIFIED BY '$dbpassword';"
-mysql --user=root --password=$mysqlrootpassword -e "CREATE DATABASE $dbname CHARACTER SET utf8 COLLATE utf8_general_ci;"
-mysql --user=root --password=$mysqlrootpassword -e "GRANT ALL ON $dbname.* TO $dbuser;"
-
-echo "Don't worry about mysql errors when dropping the user $dbuser!"
-echo "Everything is done. Check your $HOME/.pip/pip.log for errors. If some modules couldn't be installed, try again to add them to your virtualenv!"
-echo "Next steps are:"
-echo "workon $virtualenvname"
-echo "cd webapps/django/project"
-echo "Change your secret key in your local_settings.py"
-echo "python manage.py syncdb --all && python manage.py migrate --fake"
-echo "python manage.py collectstatic"
-echo "python manage.py runserver"
+echo "Don't forget to change your secret key in your local_settings.py"
