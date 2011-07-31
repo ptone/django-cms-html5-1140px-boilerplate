@@ -26,7 +26,7 @@ Preparation
 ===========
 
 You will need quite some tools such as
-mysql, virtualenv_, virtualenvwrapper_, csstidy_, sass_ and some more. Have a
+virtualenv_, virtualenvwrapper_, csstidy_, sass_ and some more. Have a
 look at our bitmazk-environment_ for a full list of tools and libraries needed.
 
 *IMPORTANT:* Be very sure that you have virtualenvwrapper installed properly.
