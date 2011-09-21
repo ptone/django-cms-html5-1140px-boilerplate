@@ -129,5 +129,3 @@ INSTALLED_APPS = (
     'south',
     # your own apps
 )
-
-
