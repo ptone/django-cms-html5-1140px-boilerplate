@@ -22,8 +22,6 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 
 # Absolute path to the directory that holds the project sources
 # Make sure to use a training slash
-PROJECT_ROOT = 'projectroot'
-APP_NAME = 'django'
 STATIC_APP_NAME = 'static'
 MEDIA_APP_NAME = 'media'
 

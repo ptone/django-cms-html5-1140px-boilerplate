@@ -1,11 +1,17 @@
+# -*- coding: utf-8 -*-
+import os
+
 from local_settings import *
 
+
 gettext = lambda s: s
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-STATIC_ROOT = PROJECT_ROOT + 'webapps/' + STATIC_APP_NAME + '/'
-MEDIA_ROOT = PROJECT_ROOT + 'webapps/' + MEDIA_APP_NAME + '/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, '..', '..', STATIC_APP_NAME)
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, '..', '..', MEDIA_APP_NAME)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -22,7 +28,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_ROOT + 'webapps/' + APP_NAME + '/project/templates'
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 # Django settings for project.
@@ -58,24 +64,25 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
 )
 
 MIDDLEWARE_CLASSES = (
-    #'django.middleware.cache.UpdateCacheMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    #'cms.middleware.multilingual.MultilingualURLMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    #'cms.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
-    #'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.media.PlaceholderMediaMiddleware',
-    #'django.middleware.cache.FetchFromCacheMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 THUMBNAIL_PROCESSORS = (
@@ -90,6 +97,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+)
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -122,6 +133,7 @@ INSTALLED_APPS = (
     'cms.plugins.inherit',
     'mptt',
     'menus',
+    'sekizai',
     # useful 3rd party apps
     'compressor',
     'easy_thumbnails',
