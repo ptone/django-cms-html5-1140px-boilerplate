@@ -30,44 +30,38 @@ git submodule update --init --recursive
 
 echo "Creating static folders..."
 mkdir ./webapps/static
-mkdir ./webapps/static/img
-mkdir ./webapps/static/css
-mkdir ./webapps/static/js
-touch ./webapps/static/css/styles.sass
+mkdir ./webapps/media
+mkdir ./webapps/django/project/static
+mkdir ./webapps/django/project/static/img
+mkdir ./webapps/django/project/static/css
+mkdir ./webapps/django/project/static/js
+touch ./webapps/django/project/static/css/styles.sass
 
 echo "Copying the parts of html5-boilerplate that we need..."
 cp ./lib/html5-boilerplate/404.html ./webapps/django/project/templates/404.html
-cp ./lib/html5-boilerplate/apple-touch-icon* ./webapps/static/img/
-cp ./lib/html5-boilerplate/favicon.ico ./webapps/static/img/favicon.ico
-cp ./lib/html5-boilerplate/robots.txt ./webapps/static/robots.txt
-cp -r ./lib/html5-boilerplate/js ./webapps/static/
-cp -r ./lib/html5-boilerplate/css ./webapps/static/
+cp ./lib/html5-boilerplate/apple-touch-icon* ./webapps/django/project/static/img/
+cp ./lib/html5-boilerplate/favicon.ico ./webapps/django/project/static/img/favicon.ico
+cp ./lib/html5-boilerplate/robots.txt ./webapps/django/project/static/robots.txt
+cp -r ./lib/html5-boilerplate/js ./webapps/django/project/static/
+cp -r ./lib/html5-boilerplate/css ./webapps/django/project/static/
 
 echo "Copying the parts of 1140px css grid that we need..."
-cp ./lib/1140px/1140.css ./webapps/static/css/1140.css
-cp ./lib/1140px/ie.css ./webapps/static/css/ie.css
+cp ./lib/1140px/1140.css ./webapps/django/project/static/css/1140.css
+cp ./lib/1140px/ie.css ./webapps/django/project/static/css/ie.css
 
 echo "Splitting up html5-boilerplate css..."
-SPLIT=`grep -n "/* Primary Styles" ./webapps/static/css/style.css | awk -F":" '{ print $1 }'`
+SPLIT=`grep -n "/* Primary Styles" ./webapps/django/project/static/css/style.css | awk -F":" '{ print $1 }'`
 SPLITHEAD=`expr $SPLIT - 1`
 SPLITTAIL=`expr $SPLIT + 3`
-head --lines=$SPLITHEAD ./webapps/static/css/style.css > ./webapps/static/css/boilerplate.css
-tail -n +$SPLITTAIL ./webapps/static/css/style.css > ./webapps/static/css/boilerplate_media.css
+head --lines=$SPLITHEAD ./webapps/django/project/static/css/style.css > ./webapps/django/project/static/css/boilerplate.css
+tail -n +$SPLITTAIL ./webapps/django/project/static/css/style.css > ./webapps/django/project/static/css/boilerplate_media.css
 
 echo "Removing the parts we dont want..."
 rm -rf .git
 rm .gitignore
 rm .gitmodules
 rm README.rst
-rm ./webapps/static/css/style.css
-
-echo "Creating symlinks..."
-mkdir -p ./webapps/media
-cd ./webapps/media
-echo "What is the name of your virtualenv: "
-ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/cms/media/cms
-ln -s $HOME/Envs/$virtualenvname/lib/python2.7/site-packages/filer/media/filer
-cd ../..
+rm ./webapps/django/project/static/css/style.css
 
 echo "Creating local_settings.py ..."
 cd webapps/django/project/
